@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 /**
- * Connects to the MongoDB database using the MONGODB_URI environment variable.
+ * Connects to the MongoDB database using the MONGO_URI environment variable.
  * Logs a success or error message.
  */
 const connectDB = async () => {
   try {
-    // Use the MONGODB_URI environment variable or fall back to local if not provided
-    const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/lostandfound';
+    // Use the MONGO_URI environment variable or fall back to local if not provided
+    const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/lostandfound';
     await mongoose.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
