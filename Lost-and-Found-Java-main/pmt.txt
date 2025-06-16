@@ -1,0 +1,128 @@
+/**
+ * Lost and Found App - Java Swing with JDBC MySQL
+ * 
+ * Folder Structure:
+ * - src/
+ *   - main/
+ *     - java/
+ *       - com/
+ *         - lostandfound/
+ *           - model/
+ *             - User.java
+ *             - Post.java
+ *             - Claim.java
+ *           - dao/
+ *             - DBConnection.java
+ *             - UserDAO.java
+ *             - PostDAO.java
+ *             - ClaimDAO.java
+ *           - ui/
+ *             - LoginFrame.java
+ *             - RegisterFrame.java
+ *             - MainFrame.java
+ *             - AdminPanel.java
+ *             - UserPanel.java
+ *             - PostDetailPanel.java
+ *             - NewPostPanel.java
+ *           - util/
+ *             - ImageUtil.java
+ *             - Constants.java
+ *           - LostAndFoundApp.java
+ *   - resources/
+ *     - config.properties
+ *     - schema.sql
+ * - uploads/
+ *     - (directory for storing uploaded images)
+ */
+
+
+// ================= DATABASE SCHEMA =================
+/*
+CREATE DATABASE lostandfound;
+USE lostandfound;
+
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    full_name VARCHAR(100) NOT NULL,
+    contact_number VARCHAR(20),
+    is_admin BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE posts (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(100) NOT NULL,
+    description TEXT,
+    location VARCHAR(200),
+    found_date DATE NOT NULL,
+    image_path VARCHAR(255),
+    status ENUM('PENDING', 'APPROVED', 'CLAIMED', 'REJECTED') DEFAULT 'PENDING',
+    user_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE IF NOT EXISTS claims (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    post_id INT NOT NULL,
+    user_id INT NOT NULL,
+    proof_description TEXT,
+    status ENUM('PENDING', 'APPROVED', 'REJECTED') DEFAULT 'PENDING',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+// ================= UI CLASSES =================
+
+
+
+
+
+// ================= MODEL CLASSES =================
+
+
+
+
+
+
+
+// ================= DATABASE CONNECTION AND DAOs =================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
