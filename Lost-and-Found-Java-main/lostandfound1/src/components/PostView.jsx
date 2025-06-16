@@ -79,7 +79,7 @@ export default function PostView({ open, onClose, currentUser, onSuccess }) {
     formData.append("userId", currentUser.userId);
 
     try {
-      await axios.post("http://localhost:5000/api/posts", formData, {
+      await axios.post("https://lost-and-found-java-mern-1.onrender.com/api/posts", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setSuccess("Your post has been submitted and is pending approval.");
