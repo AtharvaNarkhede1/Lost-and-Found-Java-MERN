@@ -27,10 +27,10 @@ function MainView({ currentUser, onLogout, onOpenPostCreation }) {
       let res;
       if (showMine) {
         res = await axios.get(
-          `http://localhost:5000/api/posts?userId=${currentUser.userId}`
+          `https://lost-and-found-java-mern-1.onrender.com/api/posts?userId=${currentUser.userId}`
         );
       } else {
-        res = await axios.get("http://localhost:5000/api/posts?isApproved=true");
+        res = await axios.get("https://lost-and-found-java-mern-1.onrender.com/api/posts?isApproved=true");
       }
       setPosts(res.data.reverse());
       setSelectedPost(null);
@@ -47,7 +47,7 @@ function MainView({ currentUser, onLogout, onOpenPostCreation }) {
   // Claim submission
   const submitClaim = async (reason, contact) => {
     try {
-      await axios.post("http://localhost:5000/api/claims", {
+      await axios.post("https://lost-and-found-java-mern-1.onrender.com/api/claims", {
         postId: selectedPost._id,
         userId: currentUser.userId,
         claimReason: reason,
