@@ -53,7 +53,7 @@ export default function LoginView({ onLoginSuccess }) {
   const handleRegisterChange = (e) => {
     setRegisterForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
-const API_BASE = process.env.REACT_APP_API_URL || "https://lost-and-found-java-mern-1.onrender.com/api";
+const API_BASE = process.env.REACT_APP_API_URL || "https://lost-and-found-java-mern.onrender.com/api";
 
   // Handle login
   const handleLogin = async (e) => {
