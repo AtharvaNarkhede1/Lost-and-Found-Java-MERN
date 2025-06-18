@@ -185,8 +185,8 @@ export default function AdminView({ admin, onLogout }) {
   const fetchPosts = async () => {
     try {
       const [pendingRes, approvedRes] = await Promise.all([
-        axios.get("/api/admin/posts/pending"),
-        axios.get("/api/admin/posts/approved"),
+        axios.get("https://lost-and-found-java-mern.onrender.com/api/admin/posts/pending"),
+        axios.get("https://lost-and-found-java-mern.onrender.com/api/admin/posts/approved"),
       ]);
       setPendingPosts(pendingRes.data || []);
       setApprovedPosts(approvedRes.data || []);
