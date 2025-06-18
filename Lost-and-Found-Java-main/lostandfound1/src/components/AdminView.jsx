@@ -201,7 +201,7 @@ export default function AdminView({ admin, onLogout }) {
   // Fetch claims for a post
   const fetchClaims = async (postId) => {
     try {
-      const res = await axios.get(`/api/admin/posts/${postId}/claims`);
+      const res = await axios.get(`https://lost-and-found-java-mern.onrender.com/api/admin/posts/${postId}/claims`);
       setClaims(res.data || []);
       setSelectedClaim(null);
     } catch {
@@ -233,7 +233,7 @@ export default function AdminView({ admin, onLogout }) {
       return;
     }
     try {
-      await axios.patch(`/api/admin/posts/${selectedPostId}/approve`, { approve });
+      await axios.patch(`https://lost-and-found-java-mern.onrender.com/api/admin/posts/${selectedPostId}/approve`, { approve });
       setSnackbar({
         open: true,
         message: `Post ${approve ? "approved" : "rejected"} successfully.`,
@@ -253,9 +253,9 @@ export default function AdminView({ admin, onLogout }) {
     }
     try {
       if (approve) {
-        await axios.patch(`/api/admin/claims/${selectedClaim}/approve`);
+        await axios.patch(`https://lost-and-found-java-mern.onrender.com/api/admin/claims/${selectedClaim}/approve`);
       } else {
-        await axios.delete(`/api/admin/claims/${selectedClaim}`);
+        await axios.delete(`https://lost-and-found-java-mern.onrender.com/api/admin/claims/${selectedClaim}`);
       }
       setSnackbar({
         open: true,
